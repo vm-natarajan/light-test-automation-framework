@@ -1,4 +1,4 @@
-package support;
+package test.java.support;
 import java.io.*;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;

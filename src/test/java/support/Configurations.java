@@ -1,4 +1,4 @@
-package support;
+package test.java.support;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;

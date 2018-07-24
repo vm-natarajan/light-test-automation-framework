@@ -1,4 +1,4 @@
-package tests;
+package test.java.tests;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,16 +37,16 @@ import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 import com.paulhammant.ngwebdriver.NgWebDriver;
-import pages.Pages;
-import support.Configurations;
-import support.DBConnection;
-import support.DataReader;
-import support.DataReaderEXCEL;
-import support.DataReaderXML;
-import support.Report;
-import support.Settings;
-import support.UiDriver;
-import support.Utility;
+import test.java.pages.Pages;
+import test.java.support.Configurations;
+import test.java.support.DBConnection;
+import test.java.support.DataReader;
+import test.java.support.DataReaderEXCEL;
+import test.java.support.DataReaderXML;
+import test.java.support.Report;
+import test.java.support.Settings;
+import test.java.support.UiDriver;
+import test.java.support.Utility;
 
 public class TestSupporter extends Pages{
 

@@ -1,14 +1,15 @@
-package support;
+package test.java.support;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
-import com.aventstack.extentreports.Status;
-import pages.PageSupporter;
-import support.enums.DB_QUERY_NAME;
 
+import com.aventstack.extentreports.Status;
+
+import test.java.pages.PageSupporter;
+import test.java.support.enums.DB_QUERY_NAME;
 
 public class DBConnection{
 	
