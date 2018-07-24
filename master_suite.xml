@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="JanIS Application Test Automation"
+	parallel="tests" thread-count="1" configfailurepolicy="continue" >
+
+	<groups>
+		<run>
+			<include name="login"></include>
+		</run>
+	</groups>
+
+	<parameter name="URL" value="http://automationpractice.com/index.php"></parameter>
+
+	<test name="Registration Tests">
+		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
+		<parameter name="SheetName" value="RegistrationData"></parameter>
+		<parameter name="Browser" value="Chrome"></parameter>
+		<classes>
+			<class name="tests.demoapp.RegistrationTests" />
+		</classes>
+	</test>
+
+	<test name="Login Tests">
+		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
+		<parameter name="SheetName" value="LoginData"></parameter>
+		<parameter name="Browser" value="Chrome"></parameter>
+		<classes>
+			<class name="tests.demoapp.LoginTests" />
+		</classes>
+	</test>
+	
+</suite>
+
