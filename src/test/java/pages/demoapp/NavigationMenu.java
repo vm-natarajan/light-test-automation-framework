@@ -1,13 +1,13 @@
-package test.java.pages.demoapp;
+package pages.demoapp;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import test.java.pages.PageSupporter;
-import test.java.support.enums.Menu;
+
+import support.enums.Menu;
 
 
-public class NavigationMenu  extends PageSupporter {
+public class NavigationMenu  extends pages.PageSupporter {
 
 	WebDriver driver;
 	public NavigationMenu(WebDriver driver) {

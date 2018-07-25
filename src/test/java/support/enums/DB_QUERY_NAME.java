@@ -1,4 +1,4 @@
-package test.java.support.enums;
+package support.enums;
 
 public enum DB_QUERY_NAME {
 	QUERY_NAME_1 {

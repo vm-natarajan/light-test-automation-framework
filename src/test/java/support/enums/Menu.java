@@ -1,4 +1,4 @@
-package test.java.support.enums;
+package support.enums;
 
 public enum Menu {
 	CONTACT_US {

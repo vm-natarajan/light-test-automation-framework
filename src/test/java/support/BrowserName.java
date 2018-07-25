@@ -1,4 +1,4 @@
-package test.java.support;
+package support;
 
 public enum BrowserName {
 	Firefox ,

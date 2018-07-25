@@ -1,12 +1,11 @@
-package test.java.tests.demoapp;
+package tests.demoapp;
 
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
-import test.java.support.enums.Menu;
-import test.java.tests.TestSupporter;
+import support.enums.Menu;
 
-public class LoginTests extends TestSupporter{
+public class LoginTests extends tests.TestSupporter{
 
 	/**
 	 * 

@@ -1,11 +1,11 @@
-package test.java.pages.demoapp;
+package pages.demoapp;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import junit.framework.Assert;
-import test.java.pages.PageSupporter;
+import pages.PageSupporter;
 
 
 public class SignInPage  extends PageSupporter{

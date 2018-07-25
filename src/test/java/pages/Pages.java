@@ -1,10 +1,12 @@
-package test.java.pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import test.java.pages.demoapp.NavigationMenu;
-import test.java.pages.demoapp.RegistrationPage;
-import test.java.pages.demoapp.SignInPage;
+
+import pages.demoapp.NavigationMenu;
+import pages.demoapp.RegistrationPage;
+import pages.demoapp.SignInPage;
+
 
 public class Pages {
 	

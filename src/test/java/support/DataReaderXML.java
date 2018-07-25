@@ -1,4 +1,4 @@
-package test.java.support;
+package support;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

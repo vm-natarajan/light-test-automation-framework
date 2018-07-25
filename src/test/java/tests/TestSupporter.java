@@ -1,4 +1,4 @@
-package test.java.tests;
+package tests;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -31,27 +32,29 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 import com.paulhammant.ngwebdriver.NgWebDriver;
-import test.java.pages.Pages;
-import test.java.support.Configurations;
-import test.java.support.DBConnection;
-import test.java.support.DataReader;
-import test.java.support.DataReaderEXCEL;
-import test.java.support.DataReaderXML;
-import test.java.support.Report;
-import test.java.support.Settings;
-import test.java.support.UiDriver;
-import test.java.support.Utility;
+
+import pages.Pages;
+import support.Configurations;
+import support.DBConnection;
+import support.DataReader;
+import support.DataReaderEXCEL;
+import support.DataReaderXML;
+import support.Report;
+import support.Settings;
+import support.UiDriver;
+import support.Utility;
 
 public class TestSupporter extends Pages{
 
 	protected final static String DOWNLOAD_PATH=System.getProperty("user.home")+"\\Downloads\\";
-	protected Settings settings = Settings.getInstance();
+	protected support.Settings settings = Settings.getInstance();
 	String dataSourcePath = settings.getDataSource();
 	String dataXmlSourcePath = settings.getXMLDataSource();
 	String driversPath = settings.getDriverEXEDir();

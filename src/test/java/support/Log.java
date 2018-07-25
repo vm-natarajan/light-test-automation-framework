@@ -1,4 +1,4 @@
-package test.java.support;
+package support;
 
 import com.aventstack.extentreports.Status;
 

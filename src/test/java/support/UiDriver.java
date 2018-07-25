@@ -1,4 +1,4 @@
-package test.java.support;
+package support;
 
 import java.util.HashMap;
 import java.util.Map;

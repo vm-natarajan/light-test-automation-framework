@@ -1,4 +1,4 @@
-package test.java.support;
+package support;
 
 import java.util.List;
 import java.util.Map;
