@@ -1,1 +1,0 @@
-# light-test-automation-framework
