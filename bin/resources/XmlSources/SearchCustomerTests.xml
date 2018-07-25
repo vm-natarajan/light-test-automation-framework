@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests name="Digital Automation suite">
+	<test test-id="RT002-1" name="Admin User - Search Customers using Management Company">
+		<data email="test_ci_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Management Company" />
+		<data searchValue="Rockville Centre I Housing Development Fund Company"/>
+		<data customerName="Rockville Centre Housing Authority"/>
+	</test>
+
+	<test test-id="RT100" name="Admin User - Search Customers using Account Number">
+		<data email="test_ci_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Account Number" />
+		<data searchValue="1462228"/>
+	</test>
+	
+	<test test-id="RT002-3" name="Admin User - Search Customers using Customer Name">
+		<data email="test_ci_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Customer Name" />
+		<data searchValue="Wolf Furniture Enterprises Inc"/>
+	</test>
+	
+	<test test-id="RT002-4" name="Admin User - Search Customers using Customer Number">
+		<data email="test_smb_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Customer Number" />
+		<data searchValue="515683"/>
+		<data customerName="Leggett &amp; Platt Incorporated"/>
+	</test>
+	
+	<test test-id="RT002-5" name="Admin User - Search Customers using LDC Account Number">
+		<data email="both_acct_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="LDC Account Number" />
+		<data searchValue="0000002038891"/>
+	</test>
+	
+	<test test-id="RT002-6" name="Admin User - Search Customers using Demand Response Customer">
+		<data email="test_ci_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Demand Response Customer Number" />
+		<data searchValue="380188"/>
+	</test>
+	
+	<test test-id="RT002-7" name="Admin User - Search Customers using Demand Response Vendor Id">
+		<data email="test_smb_only_active_admin@de.com" />
+		<data password="Testtest1" />
+		<data searchCriteria="Demand Response Vendor Id" />
+		<data searchValue="914078"/>
+		<data customerName="Demand Response Robison &amp; Smith Inc"/>
+	</test>
+</tests>
