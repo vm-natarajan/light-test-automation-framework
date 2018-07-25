@@ -5,9 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
-
 import com.aventstack.extentreports.Status;
-
 import test.java.pages.PageSupporter;
 import test.java.support.enums.DB_QUERY_NAME;
 
