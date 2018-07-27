@@ -7,11 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.javascript.host.URL;
 
 /**
  * File name   :UIDriver.java
@@ -32,7 +35,6 @@ public class UiDriver {
 	public WebDriver getDriver(String driver){
 
 		try{
-
 			if(driver.equalsIgnoreCase("Firefox")){
 				String geckoDriver=Settings.getInstance().getDriverEXEDir()+"geckodriver.exe";
 				System.setProperty("webdriver.gecko.driver", geckoDriver);
@@ -45,12 +47,27 @@ public class UiDriver {
 				ChromeOptions option = new ChromeOptions();
 				option.addArguments("--dns-prefetch-disable");
 				option.addArguments("--start-maximized");
-				String chromeDriver=Settings.getInstance().getDriverEXEDir()+"chromedriver.exe";
+				String chromeDriver=Settings.getInstance().getDriverEXEDir()+"chromedriver";
 				System.setProperty("webdriver.chrome.driver", chromeDriver);
 				wDriver = new ChromeDriver(option);
 				return wDriver;
 			}
 
+			else if(driver.equalsIgnoreCase("rChrome")) {
+				ChromeOptions options = new ChromeOptions();
+				DesiredCapabilities dc = DesiredCapabilities.chrome();
+				dc.setCapability(ChromeOptions.CAPABILITY, options);
+				wDriver = new RemoteWebDriver(dc);
+				return wDriver;
+			}
+			
+			else if(driver.equalsIgnoreCase("rFirefox")) {
+				FirefoxProfile fp = new FirefoxProfile();
+				DesiredCapabilities dc = DesiredCapabilities.firefox();
+				dc.setCapability(FirefoxDriver.PROFILE, fp);
+				wDriver = new RemoteWebDriver(dc);
+			}
+			
 			else if(driver.equalsIgnoreCase("IE")) {
 				DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
 				capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);

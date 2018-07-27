@@ -14,7 +14,7 @@
 	<test name="Registration Tests">
 		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
 		<parameter name="SheetName" value="RegistrationData"></parameter>
-		<parameter name="Browser" value="Chrome"></parameter>
+		<parameter name="Browser" value="rChrome"></parameter>
 		<classes>
 			<class name="tests.demoapp.RegistrationTests" />
 		</classes>
@@ -23,7 +23,7 @@
 	<test name="Login Tests">
 		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
 		<parameter name="SheetName" value="LoginData"></parameter>
-		<parameter name="Browser" value="Chrome"></parameter>
+		<parameter name="Browser" value="rFirefox"></parameter>
 		<classes>
 			<class name="tests.demoapp.LoginTests" />
 		</classes>

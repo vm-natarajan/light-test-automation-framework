@@ -129,8 +129,6 @@ public class TestSupporter extends Pages{
 		//driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
 		driver.get(url);
-		
-		System.out.println("Remove");
 	}
 
 	/**
