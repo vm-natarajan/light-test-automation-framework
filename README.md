@@ -13,11 +13,9 @@ The user is expected to have basic knowledge on Automation Testing. Having a wor
 Framework/Library                       | Usage Description                                                     | Version
 --------------------------------------- | ----------------------------------------------------------------------| -------
 Selenium WebDriver                      | Java API which controls Web browser and emulate user interactions     | 3.8.1 
-TestNG Framework                        | It provides features for organizing and running tests in a flexible   | 6.8
-                                          manner    
+TestNG Framework                        | It provides features for organizing and running tests in a flexible manner  | 6.8
 Maven                                   | Dependencies and Build Management                                     | 4.0.0
-Extent Reports                          | Open source Java library which provides API for reporting 
-                                        | selenium-based tests                                                  | 3.0.6
+Extent Reports                     | Open source Java library which provides API for reporting selenium-based tests | 3.0.6                                                       
 POI                                     | Open source Java library which gives API's for reading MS EXCEL files | 3.16
 
 ----------------------------------------------------------------------------------------------------------------------------
