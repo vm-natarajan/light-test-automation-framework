@@ -27,16 +27,13 @@ The source directory mainly contains packages to distinguish test methods, page 
 Directory/File                                 | Description                                                    
 ---------------------------------------------- | ------------------------------------------------------------------------
 src/test/java/pages                            | Java package that holds page objects and page methods
-src/test/java/tests                            | Java package that holds Java class files grouped under functionality, which
-                                               | has TestNG test methods annotated with @Test
-src/test/java/support                          | A collection of Java class files which provide features for reading data from 
-                                               | external files, generating test reports etc.
+src/test/java/tests                            | Java package that holds Java class files grouped under functionality, which has TestNG test methods annotated with @Test
+src/test/java/support                          | A collection of Java class files which provide features for reading data from external files, generating test reports etc.
 master_suite.xml                               | TestNG suite file that controls the execution flow
 pom.xml                                        | Maven POM file that maintains the dependencies and helps in build process
 TestSummaryReport.html                         | HTML report that has details on recent automated test execution
 history                                        | The directory where history of previous execution report will be maintained
-confirgurations.properties                     | Any test parameters can be configured if it needs to be. This is required       
-                                               | only if we have to override any existing configurations
+confirgurations.properties                     | Any test parameters can be configured if it needs to be. This is required only if we have to override any existing configurations
 
 ----------------------------------------------------------------------------------------------------------------------------
 
