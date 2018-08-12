@@ -2,7 +2,6 @@ package support;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,7 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.javascript.host.URL;
 
 /**
  * File name   :UIDriver.java
@@ -75,7 +73,6 @@ public class UiDriver {
 				capabilities.setCapability("ignoreZoomSetting", true);
 				capabilities.setCapability("ignoreProtectedModeSettings", true);
 				capabilities.setCapability("requireWindowFocus", true);
-				//capabilities.setCapability(CapabilityType.BROWSER_VERSION, 4);
 				String ieDriver=Settings.getInstance().getDriverEXEDir()+"IEDriverServer.exe";
 				System.setProperty("webdriver.ie.driver", ieDriver);
 				wDriver = new InternetExplorerDriver(capabilities);	
@@ -85,21 +82,10 @@ public class UiDriver {
 
 			else if(driver.equalsIgnoreCase("Custom")) {
 
-				/*Map<String, Object> chromePrefs = new HashMap<String, Object>();
-			    chromePrefs.put("profile.default_content_settings.popups", 0);
-			    chromePrefs.put("download.default_directory", Settings.getInstance().getDownloadFolder());
-			    chromePrefs.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1 );
-			    chromePrefs.put("download.prompt_for_download", false);*/
 				Map<String, Object> chromePrefs = new HashMap<String, Object>();
 				ChromeOptions options = new ChromeOptions();
 			    chromePrefs.put("download.default_directory", Settings.getInstance().getDownloadFolder());
-				//options.setExperimentalOption("prefs", chromePrefs);
-				//options.setExperimentalOption("prefs", chromePrefs);
-				//options.addArguments("user-data-dir=C:/Users/VNatarajan/AppData/Local/Google/Chrome/User Data");
 				options.addArguments("--start-maximized");
-				// DesiredCapabilities cap = DesiredCapabilities.chrome();
-				// cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-				// cap.setCapability(ChromeOptions.CAPABILITY, options);
 				String chromeDriver=Settings.getInstance().getDriverEXEDir()+"chromedriver.exe";
 				System.setProperty("webdriver.chrome.driver", chromeDriver);
 				wDriver = new ChromeDriver(options);

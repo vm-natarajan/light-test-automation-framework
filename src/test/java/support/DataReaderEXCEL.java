@@ -17,15 +17,17 @@ import java.util.Map;
  * @description    :
  */
 public class DataReaderEXCEL extends DataReader{
+	private  String repetition;
 	private String fileName;
 	private String sheetName;
 	private String testName;
 	Sheet sheet;
 
-	public DataReaderEXCEL(String fileName,String sheetName,String testName) {
+	public DataReaderEXCEL(String fileName,String sheetName,String testName,String repetition) {
 		this.fileName = fileName;
 		this.sheetName = sheetName;
 		this.testName = testName;
+		this.repetition = repetition;
 	}
 
 	public DataReaderEXCEL(String fileName) {
@@ -66,8 +68,12 @@ public class DataReaderEXCEL extends DataReader{
 
 				Cell cell = row.getCell(1);
 				String dtTestName = formatter.formatCellValue(cell).trim();
+				
+				cell = row.getCell(2);
+				String iteration = formatter.formatCellValue(cell).trim();
+				
 				//Reference is to point the row corresponding to the test which is being executed
-				if(dtTestName.equalsIgnoreCase(testName)) {
+				if(dtTestName.equalsIgnoreCase(testName) && iteration.equalsIgnoreCase(repetition)) {
 					for(int column = 0;column<row.getLastCellNum();column++) {
 						if(dtColumnNames.getCell(column).getStringCellValue().trim().equalsIgnoreCase(dataName.trim())) {
 							return formatter.formatCellValue(row.getCell(column)).toString().trim();

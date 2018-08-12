@@ -90,24 +90,29 @@ public class TestSupporter extends Pages{
 
 	@Parameters({"Browser","URL","Datasource","SheetName"})
 	@BeforeMethod(alwaysRun=true)
-	public void initializeBrowser( @Optional("Google Chrome")String browserName,String url,String datasource,String sheetName,Method method,ITestContext context) {
+	public void initializeBrowser(String browserName,String url,String datasource,String sheetName,Method method,ITestContext context) {
 
 		String dataSource = configurations.getProperty("DataSource");
 		String testId;
 		String testName;
+		String iteration;
 		Test testMethod = method.getAnnotation(Test.class);
 		if (testMethod.description().length()>0) {
 			testName = testMethod.description().trim();
 		}else {
 			testName = "Test description is not given";
 		}
-
+		
+		iteration = (context.getAllTestMethods()[0].getCurrentInvocationCount()+1)+"";
+		
 		if(dataSource.equalsIgnoreCase("excel")) {
 
-			data = new DataReaderEXCEL(dataSourcePath+datasource,sheetName,testName);
+			data = new DataReaderEXCEL(dataSourcePath+datasource,sheetName,testName,iteration);
 			System.out.println(dataSourcePath+datasource);
 			System.out.println(testName);
-			testId = data.get("Test_ID");	
+			System.out.println(iteration);
+			testId = data.get("Test_ID");
+			
 		}else {
 			data = new DataReaderXML(dataXmlSourcePath+"SearchCustomerTests.xml",testName);
 			testId = data.getTestId();

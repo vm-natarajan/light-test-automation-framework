@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import pages.bse.HistoricalDataPage;
 import pages.demoapp.NavigationMenu;
 import pages.demoapp.RegistrationPage;
 import pages.demoapp.SignInPage;
@@ -13,6 +14,7 @@ public class Pages {
 	protected NavigationMenu navigationMenu;
 	protected RegistrationPage registrationPage;
 	protected SignInPage signInPage;
+	protected HistoricalDataPage historicalDataPage;
 	
 	/**
 	 * 
@@ -29,5 +31,6 @@ public class Pages {
 		navigationMenu = PageFactory.initElements(driver, NavigationMenu.class);
 		registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
 		signInPage = PageFactory.initElements(driver, SignInPage.class);
+		historicalDataPage = PageFactory.initElements(driver, HistoricalDataPage.class);
 	}
 }
