@@ -14,6 +14,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 
+import io.appium.java_client.remote.MobileCapabilityType;
+
 /**
  * File name   :UIDriver.java
  * Description  : 
@@ -93,8 +95,14 @@ public class UiDriver {
 
 			}
 
-			else if(driver.equalsIgnoreCase("Edge")) {
-				//Yet to implement
+			else if(driver.equalsIgnoreCase("mChrome")) {
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				
+				capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");	
+				capabilities.setCapability(MobileCapabilityType.PLATFORM, "Android");
+				//capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "4.4");
+				//capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
+				capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 			}
 
 			else if(driver.equalsIgnoreCase("Safari")) {

@@ -5,12 +5,11 @@
 
 	<groups>
 		<run>
-			<include name="login"></include>
+			<include name="dump"></include>
 		</run>
 	</groups>
 
-	<parameter name="URL" value="http://automationpractice.com/index.php"></parameter>
-
+	
 	<test name="Registration Tests">
 		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
 		<parameter name="SheetName" value="RegistrationData"></parameter>
@@ -26,6 +25,26 @@
 		<parameter name="Browser" value="rFirefox"></parameter>
 		<classes>
 			<class name="tests.demoapp.LoginTests" />
+		</classes>
+	</test>
+	
+	<test name="BSE Scraper">
+		<parameter name="URL" value="https://www.bseindia.com/markets/equity/EQReports/StockPrcHistori.aspx?expandable=7&amp;flag=0"></parameter>
+		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
+		<parameter name="SheetName" value="BSE_StockList"></parameter>
+		<parameter name="Browser" value="Chrome"></parameter>
+		<classes>
+			<class name="tests.bse.BSEScraper" />
+		</classes>
+	</test>
+	
+	<test name="BSE Daily Scraper">
+		<parameter name="URL" value="https://www.bseindia.com/markets/equity/EQReports/BhavCopyDebt.aspx?expandable=3"></parameter>
+		<parameter name="Datasource" value="TestDataSheet.xlsx"></parameter>
+		<parameter name="SheetName" value="BSE_StockList_Daily"></parameter>
+		<parameter name="Browser" value="Chrome"></parameter>
+		<classes>
+			<class name="tests.bse.BSEScraperDaily" />
 		</classes>
 	</test>
 	
