@@ -1,5 +1,9 @@
 New File For testing
 This is an update on local
 This is an update on remote web
+<<<<<<< HEAD
 I hope finally I understood this
 Show the difference please
+=======
+I hope finally I understood this
+>>>>>>> newb
