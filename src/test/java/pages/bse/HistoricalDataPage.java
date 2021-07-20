@@ -1,19 +1,12 @@
 package pages.bse;
 
 import java.io.File;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
-
 import com.aventstack.extentreports.Status;
-
-import junit.framework.Assert;
 import pages.PageSupporter;
 import support.Log;
 
@@ -46,7 +39,7 @@ public class HistoricalDataPage  extends PageSupporter{
 
 	@FindBy(how=How.CSS,using="[name*='btnSubmit']")
 	private WebElement btnSubmit;
-
+//
 	@FindBy(how=How.CSS,using="[name*='btnDownload1']")
 	private WebElement btnDownload1;
 
@@ -56,51 +49,58 @@ public class HistoricalDataPage  extends PageSupporter{
 	@FindBy(how=How.CSS,using="[id*='ScripCodeValue']")
 	private WebElement code;
 
-	public Log search(String stockName,String stockId ,String startDate) {
-		
-		Actions action = new Actions(driver);
+	@FindBy(how=How.ID,using="dataType")
+	private WebElement dataType;
+	
+	@FindBy(how=How.ID,using="symbol")
+	private WebElement symbol;
+	
+	@FindBy(how=How.ID,using="series")
+	private WebElement series;
+	
+	@FindBy(how=How.CSS,using="div[data-test=dropdown][class*=date]")
+	private WebElement dateRange;
+	
+	@FindBy(how=How.CSS,using="button[data-value='3_M']")
+	private WebElement threeMonth;
+	
+	@FindBy(how=How.CSS,using="button[data-value='6_M']")
+	private WebElement sixMonth;
+	
+	@FindBy(how=How.CSS,using="a[href*='download']")
+	private WebElement download;
+	
+	public Log search(String stockId) {
 		Log log = getLogger();
+		String stockUrl = "https://in.finance.yahoo.com/quote/_REPLACE_.NS/history?p=_REPLACE_.NS";
+		stockUrl = stockUrl.replaceAll("_REPLACE_", stockId);
+		//Actions action = new Actions(action)
 		try {
-			waitFor(search,60);
-			wait(1);
-			search.click();
+			
+			driver.get(stockUrl);
+			waitFor(dateRange,90);
+			dateRange.click();
+			waitFor(sixMonth, 60);
+			sixMonth.click();
 			wait(5);
-			for (int i = 0; i < stockName.length(); i++){
-				char c = stockName.charAt(i);
-				String s = new StringBuilder().append(c).toString();
-				wait(1);
-				search.sendKeys(s);
-			} 
-			wait(2);
-			driver.findElement(By.xpath("//a[@class='ui-corner-all']//span[@class='rightspan'][text()='"+stockId+"']")).click();
-			//menu.click();
-			wait(1);
-			txtFromDate.sendKeys(startDate);
-			txtToDateCal.click();
-			wait(1);
-			txtToDate.click();
-			wait(1);
-			btnSubmit.click();
-			wait(1);
-			waitFor(btnDownload1,60);
-			btnDownload1.click();
-			wait(20);
-			log.message = stockName;
+			download.click();
+			wait(15);
+			log.message = stockId;
 			log.status =Status.PASS;
 		}catch(Exception e) {
 			e.printStackTrace();
-			log.message = stockName;
-			 log.status =Status.FAIL;	
+			log.message = stockId;
+			log.status =Status.FAIL;	
 		}
 		return log;
 	}
 
 
-	public boolean moveFile(String code,String stockName,String scrapeDest) {
+	public boolean moveFile(String stockName,String scrapeDest) {
 
-		String fileName = code.trim()+".csv";
+		String fileName = stockName.trim()+".NS.csv";
 		// File (or directory) with old name
-		File file = new File("/Users/veera/Downloads/"+fileName);
+		File file = new File("/Users/vm/Downloads/"+fileName);
 
 		// File (or directory) with new name
 		File file2 = new File(scrapeDest+stockName.trim()+".csv");
@@ -161,7 +161,7 @@ public class HistoricalDataPage  extends PageSupporter{
 	}
 
 
-	public boolean moveFile(String date,String scrapeDest) {
+	public boolean moveFileDup(String date,String scrapeDest) {
 		String[] sDate = date.split("-");
 		String fileName = sDate[0]+sDate[1]+sDate[2].substring(2, 4);
 		fileName = "EQ"+fileName+"_CSV.zip";

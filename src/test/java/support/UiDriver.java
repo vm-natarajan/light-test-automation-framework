@@ -2,6 +2,8 @@ package support;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -44,12 +47,15 @@ public class UiDriver {
 			}
 
 			else if(driver.equalsIgnoreCase("Chrome")) {
-				ChromeOptions option = new ChromeOptions();
-				option.addArguments("--dns-prefetch-disable");
-				option.addArguments("--start-maximized");
+				//ChromeOptions option = new ChromeOptions();
+				//option.addArguments("--dns-prefetch-disable");
+				//option.addArguments("--start-maximized");
+				 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+				 //capabilities.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+				 capabilities.setCapability(CapabilityType.PLATFORM, Platform.ANY);
 				String chromeDriver=Settings.getInstance().getDriverEXEDir()+"chromedriver";
 				System.setProperty("webdriver.chrome.driver", chromeDriver);
-				wDriver = new ChromeDriver(option);
+				wDriver = new ChromeDriver(capabilities);
 				return wDriver;
 			}
 

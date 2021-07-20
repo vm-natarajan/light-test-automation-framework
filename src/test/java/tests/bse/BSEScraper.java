@@ -1,7 +1,6 @@
 package tests.bse;
 
 import org.testng.annotations.Test;
-import com.aventstack.extentreports.Status;
 
 import support.Log;
 
@@ -17,17 +16,15 @@ public class BSEScraper extends tests.TestSupporter{
 	 * Version     : 1.0
 	 */
 	//
-	@Test(invocationCount=11,enabled=true,priority=1,groups= {"dump","scraper"},description="BSE Scraper")
+	@Test(invocationCount=501,enabled=true,priority=1,groups= {"dump","scraper"},description="NSE Scraper")
 	public void scraperBSE() {
 
-		String stockCode = data.get("StockCode");
 		String stockId = data.get("StockId");
-		String startDate = data.get("StartDate");
-		String scrapeDest = "/Users/veera/d-science/bse/scrape/dump/src/";
-		
-		Log status = historicalDataPage.search(stockCode, stockId,startDate);	
-		historicalDataPage.moveFile(stockCode, stockId,scrapeDest) ;
+		String scrapeDest = "/Users/vm/nse/scrape/src/";
+		Log status = historicalDataPage.search(stockId);	
+		historicalDataPage.moveFile( stockId,scrapeDest) ;
 		test.log(status.status, "Stock Name: "+stockId,takeScreenshot());
+		
 	}
 
 }

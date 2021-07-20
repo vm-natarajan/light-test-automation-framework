@@ -76,6 +76,17 @@ public class TestSupporter extends Pages{
 
 		try {
 			FileUtils.cleanDirectory(new File(settings.getScreenshotsDir()));
+
+			//Instantiate the driver instance
+			driver = uidriver.getDriver("Chrome");
+
+			//Set pages
+			setPages(driver);
+
+			//browser initial set ups
+			//driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
+			driver.get("https://in.finance.yahoo.com/");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -88,9 +99,9 @@ public class TestSupporter extends Pages{
 	 * Description  : Set up the tests
 	 */
 
-	@Parameters({"Browser","URL","Datasource","SheetName"})
+	@Parameters({"Datasource","SheetName"})
 	@BeforeMethod(alwaysRun=true)
-	public void initializeBrowser(String browserName,String url,String datasource,String sheetName,Method method,ITestContext context) {
+	public void initializeBrowser(String datasource,String sheetName,Method method,ITestContext context) {
 
 		String dataSource = configurations.getProperty("DataSource");
 		String testId;
@@ -124,16 +135,6 @@ public class TestSupporter extends Pages{
 		String testDescription = context.getCurrentXmlTest().getName();
 		test = report.createNewReport(testId,testDescription+" - "+testName);
 
-		//Instantiate the driver instance
-		driver = uidriver.getDriver(browserName);
-
-		//Set pages
-		setPages(driver);
-
-		//browser initial set ups
-		//driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(600, TimeUnit.SECONDS);
-		driver.get(url);
 	}
 
 	/**
@@ -159,7 +160,7 @@ public class TestSupporter extends Pages{
 		try {
 
 			//Close and quite driver instance
-			driver.quit();
+			//driver.quit();
 		}catch(Exception e) {
 			test.log(Status.FAIL, "Exception occurred in the test -  Error Detail : "+result.getThrowable().getMessage(),takeScreenshot());
 		}
